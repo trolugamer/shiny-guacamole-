@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ShieldFree es una landing page demo inspirada en antivirus gratuitos modernos, con escaneo, protección web y privacidad."
+    />
+    <title>ShieldFree Antivirus | Protección gratuita para tu PC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="brand" href="#inicio" aria-label="ShieldFree inicio">
+          <span class="brand-mark">S</span>
+          <span>ShieldFree</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Abrir menú</span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#funciones">Funciones</a>
+          <a href="#privacidad">Privacidad</a>
+          <a href="#comparativa">Comparativa</a>
+          <a href="#faq">FAQ</a>
+          <a class="nav-cta" href="#descargar">Descarga gratis</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">Antivirus gratuito para uso personal</p>
+          <h1>Protección esencial, rápida y sencilla para tu equipo.</h1>
+          <p class="hero-text">
+            ShieldFree combina escaneo inteligente, bloqueo de amenazas en tiempo real y alertas de privacidad en una interfaz clara inspirada en las suites antivirus modernas.
+          </p>
+          <div class="hero-actions" id="descargar">
+            <a class="button button-primary" href="#download-card">Descargar gratis</a>
+            <a class="button button-secondary" href="#funciones">Ver protección</a>
+          </div>
+          <div class="trust-row" aria-label="Indicadores de confianza">
+            <span>✓ Sin coste inicial</span>
+            <span>✓ Actualizaciones automáticas</span>
+            <span>✓ Diseño responsive</span>
+          </div>
+        </div>
+
+        <div class="dashboard-card" aria-label="Panel de estado antivirus">
+          <div class="status-top">
+            <div>
+              <p>Estado</p>
+              <h2>Tu equipo está protegido</h2>
+            </div>
+            <span class="status-badge">Activo</span>
+          </div>
+          <div class="scan-orbit" aria-hidden="true">
+            <div class="orbit-ring"></div>
+            <div class="shield-core">🛡️</div>
+          </div>
+          <div class="scan-progress">
+            <div class="progress-label">
+              <span id="scan-status">Escaneo rápido listo</span>
+              <strong id="scan-percent">0%</strong>
+            </div>
+            <div class="progress-track">
+              <span id="progress-bar"></span>
+            </div>
+          </div>
+          <button class="scan-button" type="button" id="scan-button">Iniciar escaneo inteligente</button>
+          <div class="mini-grid">
+            <div>
+              <strong>0</strong>
+              <span>Amenazas</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>Defensa</span>
+            </div>
+            <div>
+              <strong>1.2M</strong>
+              <span>Firmas</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="logos" aria-label="Tecnologías protegidas">
+        <span>Windows</span>
+        <span>Chrome</span>
+        <span>Outlook</span>
+        <span>Wi‑Fi</span>
+        <span>USB</span>
+      </section>
+
+      <section class="section" id="funciones">
+        <div class="section-heading">
+          <p class="eyebrow">Todo lo básico incluido</p>
+          <h2>Una experiencia familiar para quien busca seguridad gratis.</h2>
+          <p>
+            La página reproduce patrones comunes de Avast Free: hero limpio, tarjetas de estado, módulos de protección y énfasis en descarga gratuita, sin copiar marca ni recursos propietarios.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card highlighted">
+            <span class="icon">⚡</span>
+            <h3>Escaneo inteligente</h3>
+            <p>Revisa archivos, apps de inicio, extensiones y puntos vulnerables con una animación de progreso interactiva.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">🌐</span>
+            <h3>Escudo web</h3>
+            <p>Bloquea enlaces sospechosos y descargas peligrosas antes de que lleguen al escritorio.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">📧</span>
+            <h3>Protección de correo</h3>
+            <p>Detecta adjuntos maliciosos y mensajes de phishing con señales de riesgo fáciles de leer.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">📶</span>
+            <h3>Inspector Wi‑Fi</h3>
+            <p>Identifica dispositivos desconocidos y routers con configuración débil en redes domésticas.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">🔒</span>
+            <h3>Privacidad básica</h3>
+            <p>Consejos para reducir rastreadores, limpiar datos temporales y fortalecer contraseñas.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">🧩</span>
+            <h3>Modo silencioso</h3>
+            <p>Reduce notificaciones cuando juegas, presentas o ves contenido a pantalla completa.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="privacy-band" id="privacidad">
+        <div>
+          <p class="eyebrow">Privacidad visible</p>
+          <h2>Controles simples para navegar con más confianza.</h2>
+          <p>
+            Incluye secciones tipo suite: limpieza de navegador, alerta de filtraciones y endurecimiento de red, presentadas como beneficios claros.
+          </p>
+        </div>
+        <div class="privacy-panel">
+          <div class="privacy-row">
+            <span>Bloqueo de rastreadores</span>
+            <strong>Activado</strong>
+          </div>
+          <div class="privacy-row">
+            <span>Extensiones sospechosas</span>
+            <strong>0 detectadas</strong>
+          </div>
+          <div class="privacy-row">
+            <span>Red doméstica</span>
+            <strong>Segura</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split" id="comparativa">
+        <div>
+          <p class="eyebrow">Gratis vs Premium</p>
+          <h2>Empieza gratis y deja espacio para mejoras.</h2>
+          <p>
+            Esta maqueta incluye una tabla comercial estilo antivirus para mostrar qué se obtiene sin coste y qué podría reservarse a planes superiores.
+          </p>
+        </div>
+        <div class="comparison-card">
+          <div class="plan free">
+            <h3>Free</h3>
+            <p class="price">$0</p>
+            <ul>
+              <li>Escaneo de virus y malware</li>
+              <li>Escudo web básico</li>
+              <li>Inspector Wi‑Fi</li>
+            </ul>
+          </div>
+          <div class="plan premium">
+            <h3>Premium</h3>
+            <p class="price">Opcional</p>
+            <ul>
+              <li>Firewall avanzado</li>
+              <li>VPN integrada</li>
+              <li>Protección de pagos</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="download-card" id="download-card">
+        <div>
+          <p class="eyebrow">Descarga segura</p>
+          <h2>Listo para instalar en minutos.</h2>
+          <p>Introduce tu correo para recibir el enlace de descarga demo y novedades del producto.</p>
+        </div>
+        <form class="download-form" id="download-form">
+          <label class="sr-only" for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" placeholder="tu@email.com" required />
+          <button class="button button-primary" type="submit">Enviar enlace</button>
+          <p class="form-message" id="form-message" role="status"></p>
+        </form>
+      </section>
+
+      <section class="section faq" id="faq">
+        <div class="section-heading">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Detalles de la maqueta</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>¿Es una copia oficial de Avast Free?</summary>
+            <p>No. Es una página demo no afiliada, inspirada en convenciones visuales de antivirus gratuitos sin usar logotipos, nombres ni recursos propietarios.</p>
+          </details>
+          <details>
+            <summary>¿Tiene backend real de antivirus?</summary>
+            <p>No. El escaneo es una interacción de interfaz para prototipado y presentación.</p>
+          </details>
+          <details>
+            <summary>¿Funciona en móvil?</summary>
+            <p>Sí. El CSS incluye una estructura responsive para pantallas de escritorio, tablet y móvil.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 ShieldFree Demo. No afiliado a Avast ni a otras marcas de antivirus.</p>
+      <a href="#inicio">Volver arriba</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
