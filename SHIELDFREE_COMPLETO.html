@@ -1,0 +1,989 @@
+<!-- Archivo autónomo: puedes abrir este HTML aunque no tengas styles.css o script.js. -->
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ShieldFree es una landing page demo inspirada en antivirus gratuitos modernos, con escaneo, protección web y privacidad."
+    />
+    <title>ShieldFree Antivirus completo | Abrir sin archivos extra</title>
+    <style>
+:root {
+  --orange: #ff6500;
+  --orange-dark: #e45200;
+  --orange-soft: #fff0e7;
+  --ink: #14171f;
+  --muted: #697282;
+  --line: #e7eaf0;
+  --green: #15b46b;
+  --blue: #206dff;
+  --white: #ffffff;
+  --shadow: 0 24px 70px rgba(22, 30, 45, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(255, 101, 0, 0.18), transparent 32rem),
+    linear-gradient(180deg, #fff8f4 0%, #ffffff 34%, #f7f9fc 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(231, 234, 240, 0.7);
+  backdrop-filter: blur(18px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1180px;
+  min-height: 76px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.brand,
+.nav-menu,
+.hero-actions,
+.trust-row,
+.logos,
+.status-top,
+.progress-label,
+.privacy-row,
+.footer {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  gap: 12px;
+  font-weight: 800;
+  font-size: 1.12rem;
+}
+
+.brand-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  color: var(--white);
+  background: conic-gradient(from 30deg, #ff9b2f, var(--orange), #ff4c20, #ff9b2f);
+  border-radius: 16px 14px 18px 14px;
+  place-items: center;
+  box-shadow: 0 10px 30px rgba(255, 101, 0, 0.34);
+}
+
+.nav-menu {
+  gap: 26px;
+  color: #343946;
+  font-weight: 600;
+}
+
+.nav-menu a:not(.nav-cta):hover {
+  color: var(--orange);
+}
+
+.nav-cta {
+  color: var(--white);
+  background: var(--ink);
+  padding: 12px 18px;
+  border-radius: 999px;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+}
+
+.nav-toggle span:not(.sr-only) {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background: var(--ink);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.78fr);
+  gap: 56px;
+  align-items: center;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 84px 24px 56px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--orange-dark);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 760px;
+  margin-bottom: 24px;
+  font-size: clamp(2.7rem, 6vw, 5.7rem);
+  line-height: 0.94;
+  letter-spacing: -0.075em;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 4vw, 3.45rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+h3 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.hero-text,
+.section-heading p,
+.privacy-band p,
+.split p,
+.download-card p,
+.feature-card p,
+.faq p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero-text {
+  max-width: 650px;
+  font-size: 1.18rem;
+}
+
+.hero-actions {
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 34px 0 22px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover,
+.scan-button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: var(--white);
+  background: linear-gradient(135deg, var(--orange), #ff8a00);
+  box-shadow: 0 16px 38px rgba(255, 101, 0, 0.32);
+}
+
+.button-secondary {
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.trust-row {
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #4e5665;
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+
+.dashboard-card,
+.feature-card,
+.privacy-panel,
+.comparison-card,
+.download-card,
+.faq details {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(231, 234, 240, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.dashboard-card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 36px;
+}
+
+.dashboard-card::before {
+  position: absolute;
+  inset: -90px -120px auto auto;
+  width: 230px;
+  height: 230px;
+  content: "";
+  background: rgba(255, 101, 0, 0.16);
+  border-radius: 999px;
+}
+
+.status-top {
+  position: relative;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.status-top p {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.status-top h2 {
+  margin: 0;
+  font-size: 1.65rem;
+  letter-spacing: -0.035em;
+}
+
+.status-badge {
+  color: #087344;
+  background: #dcfbea;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.scan-orbit {
+  position: relative;
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+}
+
+.orbit-ring {
+  width: 208px;
+  height: 208px;
+  border: 17px solid var(--orange-soft);
+  border-top-color: var(--orange);
+  border-right-color: #ff9b2f;
+  border-radius: 50%;
+  animation: spin 5s linear infinite;
+}
+
+.shield-core {
+  position: absolute;
+  display: grid;
+  width: 116px;
+  height: 116px;
+  background: var(--white);
+  border-radius: 34px;
+  box-shadow: inset 0 0 0 1px var(--line), 0 20px 40px rgba(22, 30, 45, 0.1);
+  font-size: 3rem;
+  place-items: center;
+}
+
+.scan-progress {
+  margin-bottom: 18px;
+}
+
+.progress-label {
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #434a57;
+  font-weight: 700;
+}
+
+.progress-track {
+  height: 12px;
+  overflow: hidden;
+  background: #eef1f6;
+  border-radius: 999px;
+}
+
+.progress-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--orange), var(--green));
+  border-radius: inherit;
+  transition: width 0.35s ease;
+}
+
+.scan-button {
+  width: 100%;
+  min-height: 56px;
+  color: var(--white);
+  background: var(--ink);
+  border: 0;
+  border-radius: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.mini-grid div {
+  padding: 14px;
+  background: #f8fafc;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.mini-grid strong,
+.mini-grid span {
+  display: block;
+}
+
+.mini-grid span {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.logos {
+  justify-content: center;
+  gap: clamp(18px, 5vw, 64px);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 22px 24px 58px;
+  color: #7a8494;
+  font-weight: 800;
+}
+
+.section,
+.privacy-band,
+.download-card {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+.section-heading {
+  max-width: 780px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.feature-card {
+  padding: 28px;
+  border-radius: 28px;
+}
+
+.feature-card.highlighted {
+  color: var(--white);
+  background: linear-gradient(145deg, var(--orange), #ff8c1a);
+}
+
+.feature-card.highlighted p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 22px;
+  background: #f4f7fb;
+  border-radius: 18px;
+  font-size: 1.55rem;
+  place-items: center;
+}
+
+.highlighted .icon {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.privacy-band {
+  display: grid;
+  grid-template-columns: 1fr 0.86fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 24px;
+  background: var(--ink);
+  border-radius: 42px;
+}
+
+.privacy-band h2,
+.privacy-band p:not(.eyebrow) {
+  color: var(--white);
+}
+
+.privacy-band p:not(.eyebrow) {
+  opacity: 0.76;
+}
+
+.privacy-panel {
+  padding: 22px;
+  border-radius: 28px;
+  box-shadow: none;
+}
+
+.privacy-row {
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.privacy-row:last-child {
+  border-bottom: 0;
+}
+
+.privacy-row span {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.privacy-row strong {
+  color: var(--green);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 0.78fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.comparison-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.plan {
+  padding: 30px;
+}
+
+.plan.premium {
+  color: var(--white);
+  background: linear-gradient(145deg, #232936, #10131a);
+}
+
+.price {
+  color: var(--orange);
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
+.plan ul {
+  padding-left: 20px;
+  line-height: 2;
+}
+
+.download-card {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+  padding: 36px;
+  border-radius: 34px;
+}
+
+.download-form {
+  display: grid;
+  gap: 12px;
+}
+
+.download-form input {
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  outline: none;
+}
+
+.download-form input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px rgba(255, 101, 0, 0.13);
+}
+
+.form-message {
+  min-height: 22px;
+  margin: 0;
+  color: var(--green);
+  font-weight: 800;
+}
+
+.faq-list {
+  display: grid;
+  gap: 14px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq details {
+  padding: 22px 24px;
+  border-radius: 22px;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.faq p {
+  margin: 16px 0 0;
+}
+
+.footer {
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 36px 24px 54px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: var(--orange-dark);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    inset: 76px 16px auto;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .hero,
+  .privacy-band,
+  .split,
+  .download-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .nav {
+    padding: 0 18px;
+  }
+
+  .hero,
+  .section,
+  .privacy-band,
+  .download-card {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .feature-grid,
+  .comparison-card,
+  .mini-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card,
+  .download-card {
+    padding: 22px;
+    border-radius: 26px;
+  }
+
+  .logos {
+    flex-wrap: wrap;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="brand" href="#inicio" aria-label="ShieldFree inicio">
+          <span class="brand-mark">S</span>
+          <span>ShieldFree</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Abrir menú</span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#funciones">Funciones</a>
+          <a href="#privacidad">Privacidad</a>
+          <a href="#comparativa">Comparativa</a>
+          <a href="#faq">FAQ</a>
+          <a class="nav-cta" href="#descargar">Descarga gratis</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">Antivirus gratuito para uso personal</p>
+          <h1>Protección esencial, rápida y sencilla para tu equipo.</h1>
+          <p class="hero-text">
+            ShieldFree combina escaneo inteligente, bloqueo de amenazas en tiempo real y alertas de privacidad en una interfaz clara inspirada en las suites antivirus modernas.
+          </p>
+          <div class="hero-actions" id="descargar">
+            <a class="button button-primary" href="#download-card">Descargar gratis</a>
+            <a class="button button-secondary" href="#funciones">Ver protección</a>
+          </div>
+          <div class="trust-row" aria-label="Indicadores de confianza">
+            <span>✓ Sin coste inicial</span>
+            <span>✓ Actualizaciones automáticas</span>
+            <span>✓ Diseño responsive</span>
+          </div>
+        </div>
+
+        <div class="dashboard-card" aria-label="Panel de estado antivirus">
+          <div class="status-top">
+            <div>
+              <p>Estado</p>
+              <h2>Tu equipo está protegido</h2>
+            </div>
+            <span class="status-badge">Activo</span>
+          </div>
+          <div class="scan-orbit" aria-hidden="true">
+            <div class="orbit-ring"></div>
+            <div class="shield-core">🛡️</div>
+          </div>
+          <div class="scan-progress">
+            <div class="progress-label">
+              <span id="scan-status">Escaneo rápido listo</span>
+              <strong id="scan-percent">0%</strong>
+            </div>
+            <div class="progress-track">
+              <span id="progress-bar"></span>
+            </div>
+          </div>
+          <button class="scan-button" type="button" id="scan-button">Iniciar escaneo inteligente</button>
+          <div class="mini-grid">
+            <div>
+              <strong>0</strong>
+              <span>Amenazas</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>Defensa</span>
+            </div>
+            <div>
+              <strong>1.2M</strong>
+              <span>Firmas</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="logos" aria-label="Tecnologías protegidas">
+        <span>Windows</span>
+        <span>Chrome</span>
+        <span>Outlook</span>
+        <span>Wi‑Fi</span>
+        <span>USB</span>
+      </section>
+
+      <section class="section" id="funciones">
+        <div class="section-heading">
+          <p class="eyebrow">Todo lo básico incluido</p>
+          <h2>Una experiencia familiar para quien busca seguridad gratis.</h2>
+          <p>
+            La página reproduce patrones comunes de Avast Free: hero limpio, tarjetas de estado, módulos de protección y énfasis en descarga gratuita, sin copiar marca ni recursos propietarios.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card highlighted">
+            <span class="icon">⚡</span>
+            <h3>Escaneo inteligente</h3>
+            <p>Revisa archivos, apps de inicio, extensiones y puntos vulnerables con una animación de progreso interactiva.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">🌐</span>
+            <h3>Escudo web</h3>
+            <p>Bloquea enlaces sospechosos y descargas peligrosas antes de que lleguen al escritorio.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">📧</span>
+            <h3>Protección de correo</h3>
+            <p>Detecta adjuntos maliciosos y mensajes de phishing con señales de riesgo fáciles de leer.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">📶</span>
+            <h3>Inspector Wi‑Fi</h3>
+            <p>Identifica dispositivos desconocidos y routers con configuración débil en redes domésticas.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">🔒</span>
+            <h3>Privacidad básica</h3>
+            <p>Consejos para reducir rastreadores, limpiar datos temporales y fortalecer contraseñas.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">🧩</span>
+            <h3>Modo silencioso</h3>
+            <p>Reduce notificaciones cuando juegas, presentas o ves contenido a pantalla completa.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="privacy-band" id="privacidad">
+        <div>
+          <p class="eyebrow">Privacidad visible</p>
+          <h2>Controles simples para navegar con más confianza.</h2>
+          <p>
+            Incluye secciones tipo suite: limpieza de navegador, alerta de filtraciones y endurecimiento de red, presentadas como beneficios claros.
+          </p>
+        </div>
+        <div class="privacy-panel">
+          <div class="privacy-row">
+            <span>Bloqueo de rastreadores</span>
+            <strong>Activado</strong>
+          </div>
+          <div class="privacy-row">
+            <span>Extensiones sospechosas</span>
+            <strong>0 detectadas</strong>
+          </div>
+          <div class="privacy-row">
+            <span>Red doméstica</span>
+            <strong>Segura</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split" id="comparativa">
+        <div>
+          <p class="eyebrow">Gratis vs Premium</p>
+          <h2>Empieza gratis y deja espacio para mejoras.</h2>
+          <p>
+            Esta maqueta incluye una tabla comercial estilo antivirus para mostrar qué se obtiene sin coste y qué podría reservarse a planes superiores.
+          </p>
+        </div>
+        <div class="comparison-card">
+          <div class="plan free">
+            <h3>Free</h3>
+            <p class="price">$0</p>
+            <ul>
+              <li>Escaneo de virus y malware</li>
+              <li>Escudo web básico</li>
+              <li>Inspector Wi‑Fi</li>
+            </ul>
+          </div>
+          <div class="plan premium">
+            <h3>Premium</h3>
+            <p class="price">Opcional</p>
+            <ul>
+              <li>Firewall avanzado</li>
+              <li>VPN integrada</li>
+              <li>Protección de pagos</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="download-card" id="download-card">
+        <div>
+          <p class="eyebrow">Descarga segura</p>
+          <h2>Listo para instalar en minutos.</h2>
+          <p>Introduce tu correo para recibir el enlace de descarga demo y novedades del producto.</p>
+        </div>
+        <form class="download-form" id="download-form">
+          <label class="sr-only" for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" placeholder="tu@email.com" required />
+          <button class="button button-primary" type="submit">Enviar enlace</button>
+          <p class="form-message" id="form-message" role="status"></p>
+        </form>
+      </section>
+
+      <section class="section faq" id="faq">
+        <div class="section-heading">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Detalles de la maqueta</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>¿Es una copia oficial de Avast Free?</summary>
+            <p>No. Es una página demo no afiliada, inspirada en convenciones visuales de antivirus gratuitos sin usar logotipos, nombres ni recursos propietarios.</p>
+          </details>
+          <details>
+            <summary>¿Tiene backend real de antivirus?</summary>
+            <p>No. El escaneo es una interacción de interfaz para prototipado y presentación.</p>
+          </details>
+          <details>
+            <summary>¿Funciona en móvil?</summary>
+            <p>Sí. El CSS incluye una estructura responsive para pantallas de escritorio, tablet y móvil.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 ShieldFree Demo. No afiliado a Avast ni a otras marcas de antivirus.</p>
+      <a href="#inicio">Volver arriba</a>
+    </footer>
+
+    <script>
+const scanButton = document.querySelector("#scan-button");
+const progressBar = document.querySelector("#progress-bar");
+const scanPercent = document.querySelector("#scan-percent");
+const scanStatus = document.querySelector("#scan-status");
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector("#nav-menu");
+const downloadForm = document.querySelector("#download-form");
+const formMessage = document.querySelector("#form-message");
+
+const scanSteps = [
+  "Analizando memoria",
+  "Revisando archivos críticos",
+  "Comprobando extensiones",
+  "Inspeccionando red Wi‑Fi",
+  "Optimizando privacidad",
+  "Escaneo completado: sin amenazas",
+];
+
+let scanTimer;
+
+function setScanProgress(percent) {
+  progressBar.style.width = `${percent}%`;
+  scanPercent.textContent = `${percent}%`;
+}
+
+function runScan() {
+  clearInterval(scanTimer);
+  let progress = 0;
+  scanButton.disabled = true;
+  scanButton.textContent = "Escaneando...";
+  setScanProgress(progress);
+
+  scanTimer = setInterval(() => {
+    progress += Math.floor(Math.random() * 12) + 7;
+    const safeProgress = Math.min(progress, 100);
+    const stepIndex = Math.min(Math.floor(safeProgress / 20), scanSteps.length - 1);
+
+    setScanProgress(safeProgress);
+    scanStatus.textContent = scanSteps[stepIndex];
+
+    if (safeProgress >= 100) {
+      clearInterval(scanTimer);
+      scanButton.disabled = false;
+      scanButton.textContent = "Volver a escanear";
+    }
+  }, 420);
+}
+
+scanButton.addEventListener("click", runScan);
+
+navToggle.addEventListener("click", () => {
+  const isOpen = navMenu.classList.toggle("open");
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+navMenu.addEventListener("click", (event) => {
+  if (event.target.tagName === "A") {
+    navMenu.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+  }
+});
+
+downloadForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const email = new FormData(downloadForm).get("email");
+  formMessage.textContent = `Enlace demo enviado a ${email}.`;
+  downloadForm.reset();
+});
+
+    </script>
+  </body>
+</html>
